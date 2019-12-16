@@ -3,7 +3,6 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "scripts": {
       "clean": "rimraf ./dist && mkdir dist",
       "lint": "esw  ./test ./routes ./models/ app.js bin/www ",
       "lint:fix": "npm run lint -- --fix",
@@ -18,7 +17,6 @@
       "postbuild:dev": "npm run start:prod",
       "build:release": "npm-run-all  test clean compile ",
       "postbuild:release": "rimraf dist/.git dist/test dist/nodemon.json"
-    }
   },
   "nyc": {
     "reporter": [
