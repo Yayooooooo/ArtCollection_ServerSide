@@ -1,0 +1,265 @@
+[33mcommit 8a666bc14d6d920d4120820d47c85bbe244a9582[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m
+Author: Yuting <cindy.jingyt97@gmail.com>
+Date:   Mon Dec 16 01:00:15 2019 +0000
+
+    server side poetry
+
+[33mcommit c9a94ed314c56eb116c8304f8f0bc7c4a4aeef5d[m[33m ([m[1;31mtest/master[m[33m)[m
+Merge: 0bbfdaa6 f8f034e0
+Author: Yuting <cindy.jingyt97@gmail.com>
+Date:   Wed Nov 6 01:18:50 2019 +0800
+
+    Merge branch 'master' of https://github.com/Yayooooooo/PoemTest
+
+[33mcommit 0bbfdaa66ca03bf7d35ff3a1853483a321d845ee[m
+Author: Yuting <cindy.jingyt97@gmail.com>
+Date:   Wed Nov 6 01:17:54 2019 +0800
+
+    add a data model pic
+
+[33mcommit f8f034e055d166d07225cd4c6c3917c17a54fa1c[m
+Author: Yayooooooo <314839179@qq.com>
+Date:   Wed Nov 6 01:17:01 2019 +0800
+
+    Update README.md
+
+[33mcommit 830eaec5768df2a3537afac64aa5ba737f5662ef[m
+Author: Yuting <cindy.jingyt97@gmail.com>
+Date:   Wed Nov 6 00:44:34 2019 +0800
+
+    Configured for code coverage reporting
+
+[33mcommit bf46e288121c34fd6551c2ab914c602dfd2ebc27[m
+Author: Yuting <cindy.jingyt97@gmail.com>
+Date:   Wed Nov 6 00:03:10 2019 +0800
+
+    trying to see code coverage
+
+[33mcommit 2392372303f28f1581f6fb719c3232f91b37aef5[m
+Author: Yuting <cindy.jingyt97@gmail.com>
+Date:   Tue Nov 5 23:01:18 2019 +0800
+
+    Linting clean for app.js
+
+[33mcommit bf3766c0f9d6af76d34661f7ee214012b474e385[m
+Author: Yuting <cindy.jingyt97@gmail.com>
+Date:   Tue Nov 5 22:54:41 2019 +0800
+
+    Linting clean
+
+[33mcommit e6a548e9b83e2acf4422cb38c7a007f3bafc4e8b[m[33m ([m[1;32mput-work-to-author-test[m[33m)[m
+Author: Yuting <cindy.jingyt97@gmail.com>
+Date:   Tue Nov 5 22:14:08 2019 +0800
+
+    delete work from author when author id is invaild
+
+[33mcommit 76fd922c0c7041853acfac544462a3026f47873e[m
+Author: Yuting <cindy.jingyt97@gmail.com>
+Date:   Tue Nov 5 22:13:22 2019 +0800
+
+    delete work from author when author id is vaild
+
+[33mcommit 35d9327304674a2d79e107c5c19b1fb664ca5e79[m[33m ([m[1;32mput-like-to-author[m[33m)[m
+Author: Yuting <cindy.jingyt97@gmail.com>
+Date:   Tue Nov 5 20:44:32 2019 +0800
+
+    add a work to author when author id is invalid
+
+[33mcommit 888a290c5a80e43fbe2f01d19d1a55417edc29b8[m
+Author: Yuting <cindy.jingyt97@gmail.com>
+Date:   Tue Nov 5 20:35:12 2019 +0800
+
+    add a work to author when author id is valid
+
+[33mcommit e1bd4fab72dd6095638003e978d7bf7a82aae384[m[33m ([m[1;32mdelete-poem-test[m[33m)[m
+Author: Yuting <cindy.jingyt97@gmail.com>
+Date:   Tue Nov 5 18:37:52 2019 +0800
+
+    delete a poem when id is invalid
+
+[33mcommit d08ba032cb1c63a07fb0315fd31d8339dbb10b3c[m
+Author: Yuting <cindy.jingyt97@gmail.com>
+Date:   Tue Nov 5 18:36:42 2019 +0800
+
+    delete a poem when id is valid
+
+[33mcommit 801603b1f3494a0cd58e725df343cb85e98ca29f[m[33m ([m[1;32madd-poem-test-agian[m[33m)[m
+Author: Yuting <cindy.jingyt97@gmail.com>
+Date:   Tue Nov 5 18:32:04 2019 +0800
+
+    enhance the add poem when author and title are provided and add a test which add a poem when author is missed
+
+[33mcommit f618424527365b6f6357583b323d5f4c31ccb0db[m
+Author: Yuting <cindy.jingyt97@gmail.com>
+Date:   Tue Nov 5 18:18:33 2019 +0800
+
+    Add a user when title and author are valid
+
+[33mcommit 9f91658c4e291d22012ae5512e8eb3ba40061ebc[m[33m ([m[1;32mget-poems-test-again[m[33m)[m
+Author: Yuting <cindy.jingyt97@gmail.com>
+Date:   Tue Nov 5 18:06:10 2019 +0800
+
+    get specific poem tested when given the invalid id
+
+[33mcommit edeb097a1e31f9bdb90add2abd15df747d5f8dda[m
+Author: Yuting <cindy.jingyt97@gmail.com>
+Date:   Tue Nov 5 18:05:36 2019 +0800
+
+    get specific poem tested when given the valid id
+
+[33mcommit bc2c0bbe0d4a283dbdf34863a10d7d613ff2534d[m
+Author: Yuting <cindy.jingyt97@gmail.com>
+Date:   Tue Nov 5 18:01:14 2019 +0800
+
+    Get all users tested
+
+[33mcommit d708a0665d7b0bac720f55da640f8003fa09fcb9[m[33m ([m[1;32madd-poem-test[m[33m)[m
+Merge: ac14d6f9 251a1e99
+Author: Yuting <cindy.jingyt97@gmail.com>
+Date:   Tue Nov 5 11:19:54 2019 +0800
+
+    after fixing conflits
+
+[33mcommit 251a1e99e92fe3b8e32c9b96827f6fd3d5ed63b5[m[33m ([m[1;32mget-users-test[m[33m)[m
+Author: Yuting <cindy.jingyt97@gmail.com>
+Date:   Tue Nov 5 11:09:23 2019 +0800
+
+    get specific poem when id is invalid
+
+[33mcommit e8e9368ead765be164d290d193629a209d997d4c[m
+Author: Yuting <cindy.jingyt97@gmail.com>
+Date:   Tue Nov 5 11:08:56 2019 +0800
+
+    get specific poem when id is valid
+
+[33mcommit ac14d6f99070f59e636e2697265f6a8f828b7445[m[33m ([m[1;32muser-logout-test[m[33m)[m
+Author: Yuting <cindy.jingyt97@gmail.com>
+Date:   Tue Nov 5 10:12:12 2019 +0800
+
+    user logout
+
+[33mcommit 261a8d29582f72dae1828c65936acd39923acef0[m
+Author: Yuting <cindy.jingyt97@gmail.com>
+Date:   Tue Nov 5 10:10:47 2019 +0800
+
+    user logout when id is valid
+
+[33mcommit bd36a9a711e3adc4f62fd094e20bf376961ae561[m[33m ([m[1;32mdelete-user-test[m[33m)[m
+Author: Yuting <cindy.jingyt97@gmail.com>
+Date:   Tue Nov 5 10:02:23 2019 +0800
+
+    delete a user when give a invalid id
+
+[33mcommit 083fccd24b4e6d7d912f292d96df53513b2d8f38[m
+Author: Yuting <cindy.jingyt97@gmail.com>
+Date:   Tue Nov 5 09:54:07 2019 +0800
+
+    delete a user when give a valid id
+
+[33mcommit e3d1e7153c432b965e8e49c974a9c87d10a1a256[m[33m ([m[1;32muser-register-test[m[33m)[m
+Author: Yuting <cindy.jingyt97@gmail.com>
+Date:   Tue Nov 5 09:23:20 2019 +0800
+
+    register when not passwords dont match
+
+[33mcommit eee7640138f6fb6c8879440ccb1f50ea763f9e49[m
+Author: Yuting <cindy.jingyt97@gmail.com>
+Date:   Tue Nov 5 09:21:34 2019 +0800
+
+    register when not passwords dont match
+
+[33mcommit 1215ae4f4d65b197a3ee3999ef724ab42f1f3726[m
+Author: Yuting <cindy.jingyt97@gmail.com>
+Date:   Tue Nov 5 07:34:42 2019 +0800
+
+    register when not all fields are filled
+
+[33mcommit 05fbf2576eb5ec1c64599a51c81e65472a13e5c0[m
+Author: Yuting <cindy.jingyt97@gmail.com>
+Date:   Tue Nov 5 07:32:06 2019 +0800
+
+    register when all fields are filled, password and passwordConf matches
+
+[33mcommit 19637848b80bb7923f30ed2528f99c7840039872[m[33m ([m[1;32musers-login-test[m[33m)[m
+Author: Yuting <cindy.jingyt97@gmail.com>
+Date:   Tue Nov 5 06:49:49 2019 +0800
+
+    Get users login teste. Providing info are correct and incorrect are both tested
+
+[33mcommit 613f549b758d3c0d346ee6b72d8bec587ef5dfb7[m
+Author: Yuting <cindy.jingyt97@gmail.com>
+Date:   Tue Nov 5 06:03:03 2019 +0800
+
+    Get specific users endpoint tested
+
+[33mcommit 8972bdd1cf6a498cd95b3045899a61923b0b940f[m
+Author: Yuting <cindy.jingyt97@gmail.com>
+Date:   Tue Nov 5 05:55:30 2019 +0800
+
+    Get all users endpoint tested
+
+[33mcommit c8f40284cd9c105df3801c6f46e370c20999932e[m[33m ([m[1;32madd-authors-test[m[33m)[m
+Author: Yuting <cindy.jingyt97@gmail.com>
+Date:   Mon Nov 4 23:08:08 2019 +0800
+
+    Add author tested
+
+[33mcommit 700b92f03da02efe9b70c79125370736daab3b2f[m[33m ([m[1;32mget-authors-test[m[33m)[m
+Author: Yuting <cindy.jingyt97@gmail.com>
+Date:   Mon Nov 4 09:22:20 2019 +0800
+
+    Additional changes, not really realted to author's GET method
+
+[33mcommit e7bcf7a1f4ea9e6de6284f9d9f3ec54e0cb1d382[m
+Author: Yuting <cindy.jingyt97@gmail.com>
+Date:   Mon Nov 4 07:18:06 2019 +0800
+
+    Get specific donations tested
+
+[33mcommit 6ab2a195ad7d90e43b41c5e190ad08540f8bea15[m
+Author: Yuting <cindy.jingyt97@gmail.com>
+Date:   Mon Nov 4 06:22:52 2019 +0800
+
+    Get all authors endpoint tested
+
+[33mcommit 79973b60ec0ac3f5637760906d1ebb558204b9e1[m[33m ([m[1;31morigin/master[m[33m)[m
+Author: Yayooooooo <314839179@qq.com>
+Date:   Sun Oct 27 20:30:47 2019 +0000
+
+    Update README.md
+
+[33mcommit cc44c7377104d70da96c22ce0e65e01f53ebe2d9[m
+Author: Yayooooooo <314839179@qq.com>
+Date:   Sun Oct 27 20:28:17 2019 +0000
+
+    Update README.md
+
+[33mcommit 85c04662603ccb8ce23a0e9a47890dff4e486ad9[m
+Author: Yuting <cindy.jingyt97@gmail.com>
+Date:   Sun Oct 27 19:29:25 2019 +0000
+
+    Assignment1
+
+[33mcommit bd2c90870693078660baceccbf572a6724125bcb[m
+Author: Yayooooooo <314839179@qq.com>
+Date:   Tue Oct 22 17:31:16 2019 +0800
+
+    Update README.md
+
+[33mcommit 33a09397b4ac13a400bd8c610f617ce5a901b6a4[m
+Author: Yuting <cindy.jingyt97@gmail.com>
+Date:   Tue Oct 22 17:14:44 2019 +0800
+
+    first commit
+
+[33mcommit 5a8fdfc1136ce628cecf4876010298eb037c631f[m
+Author: Yayooooooo <314839179@qq.com>
+Date:   Thu Sep 12 05:43:51 2019 +0800
+
+    Update README.md
+
+[33mcommit df6fed0ce205cd3ec79ad57019bc4919fc57d39f[m
+Author: Yayooooooo <314839179@qq.com>
+Date:   Thu Sep 12 05:42:40 2019 +0800
+
+    Initial commit

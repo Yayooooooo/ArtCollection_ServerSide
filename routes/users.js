@@ -99,7 +99,7 @@ router.userLogin = (req, res) => {
                 // return next(err);
             } else {
                 req.session.userId = user._id;
-                console.log(req.session)
+                console.log(req.session);
                 res.json({data: req.session.userId, message: "User Successfully Login!"});
                 // return res.redi ('/profile');
             }

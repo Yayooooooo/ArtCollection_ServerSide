@@ -1,5 +1,4 @@
 let Poem = require("../models/poems");
-let Author = require("../models/authors");
 let User = require("../models/users");
 let express = require("express");
 let router = express.Router();
@@ -37,7 +36,7 @@ router.findMyPoems = (req, res) => {
             // console.log(req.session)
             // res.json({data:req.session.userId})
             if(!req.session.userId){
-                res.json({data:"Please Login first"})
+                res.json({data:"Please Login first"});
             }
             else{
                 Poem.find({"author": user.username}, function (err, poem) {
@@ -48,7 +47,7 @@ router.findMyPoems = (req, res) => {
                 });
             }
         }
-    })
+    });
 };
 
 router.addPoem = (req, res) => {
@@ -75,10 +74,10 @@ router.incrementLikes = (req, res) => {
             res.json({ message: "Poem NOT Found!", errmsg : err } );
         else {
             if (poem.likes.includes(req.session.userId)) {
-                res.json({message: 'You have already liked this poem!'});
+                res.json({message: "You have already liked this poem!"});
             } else {
                 if(req.session.userId == null){
-                    res.json({message:'You haven\'t login. Please login first.'})
+                    res.json({message:"You haven't login. Please login first."});
                 }
                 else{
                     poem.likes.push(req.session.userId);
@@ -100,10 +99,10 @@ router.decreaseLikes = (req, res) => {
             res.json({ message: "Poem NOT Found!", errmsg : err } );
         else {
             if(req.session.userId == null){
-                res.json({message:'You haven\'t login. Please login first.'})
+                res.json({message:"You haven't login. Please login first."});
             } else {
                 if (!poem.likes.includes(req.session.userId)) {
-                    res.json({message: 'This is used for cancel your like.'});
+                    res.json({message: "This is used for cancel your like."});
                 }
                 else{
                     poem.likes.remove(req.session.userId);
@@ -133,20 +132,20 @@ router.editPoem = (req, res) => {
     Poem.findById(req.params.id, function(err, poem) {
         // console.log('SERVER : ' + req.params._id + ' ' + req.body);
         if (err)
-            res.json({ message: 'Poem NOT Found!', errmsg : err } );
+            res.json({ message: "Poem NOT Found!", errmsg : err } );
         else {
             poem.title = req.body.title;
             poem.content= req.body.content;
 
             poem.save(function (err) {
                 if (err)
-                    res.json({ message: 'Poem NOT UpDated!', errmsg : err } );
+                    res.json({ message: "Poem NOT UpDated!", errmsg : err } );
                 else
-                    res.json({ message: 'Poem Successfully UpDated!', data: poem });
+                    res.json({ message: "Poem Successfully UpDated!", data: poem });
             });
         }
     });
-}
+};
 
 /*
 //This is the sum of the like of all the objects

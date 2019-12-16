@@ -42,13 +42,13 @@ router.addAuthor = (req, res) => {
 router.incrementLikes = (req, res) => {
     Author.findById(req.params.id, function(err,author) {
         if (err)
-            res.json({ message: 'Author NOT Found!', errmsg : err } );
+            res.json({ message: "Author NOT Found!", errmsg : err } );
         else {
             if (author.likes.includes(req.session.userId)) {
-                res.json({message: 'You have already liked this author!'});
+                res.json({message: "You have already liked this author!"});
             } else {
                 if(req.session.userId == null){
-                    res.json({message:'You haven\'t login. Please login first.'})
+                    res.json({message:"You haven't login. Please login first."});
                 }
                 else{
                     author.likes.push(req.session.userId);
@@ -67,13 +67,13 @@ router.incrementLikes = (req, res) => {
 router.decreaseLikes = (req, res) => {
     Author.findById(req.params.id, function(err,author) {
         if (err)
-            res.json({ message: 'Author NOT Found!', errmsg : err } );
+            res.json({ message: "Author NOT Found!", errmsg : err } );
         else {
             if(req.session.userId == null){
-                res.json({message:'You haven\'t login. Please login first.'})
+                res.json({message:"You haven't login. Please login first."});
             }else {
                 if (!author.likes.includes(req.session.userId)) {
-                    res.json({message: 'This is used for cancel your like.'});
+                    res.json({message: "This is used for cancel your like."});
                 }
                 else{
                     author.likes.remove(req.session.userId);
