@@ -3,7 +3,6 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-      "clean": "rimraf ./dist && mkdir dist",
       "lint": "esw  ./test ./routes ./models/ app.js bin/www ",
       "lint:fix": "npm run lint -- --fix",
       "lint:watch": "npm run lint -- --watch",
@@ -12,10 +11,10 @@
       "compile": "babel ./ --out-dir dist/ --ignore ./node_modules,./test --copy-files ",
       "start:prod": "cross-env NODE_ENV=dev node dist/bin/www",
       "start:watch": "cross-env NODE_ENV=dev nodemon --exec babel-node bin/www",
-      "prebuild:dev": "npm-run-all test clean",
+      "prebuild:dev": "npm-run-all test",
       "build:dev": "npm run compile",
       "postbuild:dev": "npm run start:prod",
-      "build:release": "npm-run-all  test clean compile ",
+      "build:release": "npm-run-all  test compile ",
       "postbuild:release": "rimraf dist/.git dist/test dist/nodemon.json"
   },
   "nyc": {
