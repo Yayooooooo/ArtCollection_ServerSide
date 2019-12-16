@@ -5,6 +5,7 @@ let Schema = mongoose.Schema;
 let PoemSchema = new Schema({
     title: String,
     author: String,
+    content: String,
     likes: [{type: Schema.Types.ObjectId, ref: "users"}]
 },
 { collection: "poetry"}

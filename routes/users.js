@@ -39,6 +39,16 @@ router.addAUser = (req, res) => {
     // If the email hasn't been registered
     //Add a new user to our list if all the fields are filled (Register)
     else if(req.body.email && req.body.username && req.body.password && req.body.passwordConf && req.body.gender) {
+        /*User.find({"username":req.body.username},function(err, existUser) {
+            if (existUser){
+                res.json({message:"Username exist"})
+            }
+        }
+        User.find({"email":req.body.email},function(err, existEmail) {
+            if (existEmail){
+                res.json({message:"Email exist"})
+            }
+        }*/
         var user = new User();
         user.username = req.body.username;
         user.email = req.body.email;
@@ -56,7 +66,22 @@ router.addAUser = (req, res) => {
         });
     }
     else {
-        res.json({message: "All fields required"});
+        res.json({message:"All fields required"});
+        /*if(!req.body.gender){
+            res.json({message: "No gender"});
+        }
+        if(req.body.username){
+            res.json({message: "No username"});
+        }
+        if(req.body.password){
+            res.json({message: "No pas"});
+        }
+        if(req.body.passwordConf){
+            res.json({message: "No pasConf"});
+        }
+        if(req.body.email){
+            res.json({message: "No email"});
+        }*/
         // var err = new Error('All fields required.');
         // err.status = 400;
         // return next(err);
@@ -74,6 +99,7 @@ router.userLogin = (req, res) => {
                 // return next(err);
             } else {
                 req.session.userId = user._id;
+                console.log(req.session)
                 res.json({data: req.session.userId, message: "User Successfully Login!"});
                 // return res.redi ('/profile');
             }

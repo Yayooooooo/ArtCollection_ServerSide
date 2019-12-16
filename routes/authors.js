@@ -38,19 +38,28 @@ router.addAuthor = (req, res) => {
     });
 };
 
-/*
+
 router.incrementLikes = (req, res) => {
     Author.findById(req.params.id, function(err,author) {
         if (err)
             res.json({ message: 'Author NOT Found!', errmsg : err } );
         else {
-            author.likes.push(req.session.userId);
-            author.save(function (err) {
-                if (err)
-                    res.json({ message: 'Author NOT liked!', errmsg : err } );
-                else
-                    res.json({ message: 'Author Successfully Liked!', data: author });
-            });
+            if (author.likes.includes(req.session.userId)) {
+                res.json({message: 'You have already liked this author!'});
+            } else {
+                if(req.session.userId == null){
+                    res.json({message:'You haven\'t login. Please login first.'})
+                }
+                else{
+                    author.likes.push(req.session.userId);
+                    author.save(function (err) {
+                        if (err)
+                            res.json({message: "Author NOT liked!", errmsg: err});
+                        else
+                            res.json({message: "Author Successfully Liked!", data:author});
+                    });
+                }
+            }
         }
     });
 };
@@ -60,16 +69,25 @@ router.decreaseLikes = (req, res) => {
         if (err)
             res.json({ message: 'Author NOT Found!', errmsg : err } );
         else {
-            author.likes.remove(req.session.userId);
-            author.save(function (err) {
-                if (err)
-                    res.json({ message: 'Author NOT liked!', errmsg : err } );
-                else
-                    res.json({ message: 'Author Successfully Unliked!', data: author });
-            });
+            if(req.session.userId == null){
+                res.json({message:'You haven\'t login. Please login first.'})
+            }else {
+                if (!author.likes.includes(req.session.userId)) {
+                    res.json({message: 'This is used for cancel your like.'});
+                }
+                else{
+                    author.likes.remove(req.session.userId);
+                    author.save(function (err) {
+                        if (err)
+                            res.json({message: "Author NOT unliked!", errmsg: err});
+                        else
+                            res.json({message: "Author Successfully unliked!", data:author});
+                    });
+                }
+            }
         }
     });
-};*/
+};
 
 
 router.incrementWorks = (req, res) => {

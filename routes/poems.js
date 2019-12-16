@@ -1,4 +1,6 @@
 let Poem = require("../models/poems");
+let Author = require("../models/authors");
+let User = require("../models/users");
 let express = require("express");
 let router = express.Router();
 
@@ -12,7 +14,6 @@ router.findAllPoems = (req, res) => {
     });
 };
 
-
 router.findOnePoem = (req, res) => {
     res.setHeader("Content-Type","application/json");
 
@@ -24,18 +25,46 @@ router.findOnePoem = (req, res) => {
     });
 };
 
+router.findMyPoems = (req, res) => {
+    res.setHeader("Content-Type","application/json");
+    User.findById(req.session.userId,function(err,user) {
+        if (err)
+            res.json({message: "You don't have your own poems! Error", errmsg: err});
+        else {
+            // poem.likes.push(req.session.userId);
+            // console.log(req.session.userId)
+            // console.log(req.body)
+            // console.log(req.session)
+            // res.json({data:req.session.userId})
+            if(!req.session.userId){
+                res.json({data:"Please Login first"})
+            }
+            else{
+                Poem.find({"author": user.username}, function (err, poem) {
+                    if (err)
+                        res.json({message: "Poem NOT Found!", errmsg: err});
+                    else
+                        res.send(JSON.stringify(poem, null, 5));
+                });
+            }
+        }
+    })
+};
+
 router.addPoem = (req, res) => {
     //Add a new donation to our list
     var poem = new Poem();
 
     poem.title = req.body.title;
     poem.author = req.body.author;
+    poem.content = req.body.content;
 
     poem.save(function(err) {
         if (err)
             res.json({ message: "Poem NOT Added!", errmsg : err } );
-        else
-            res.json({ message: "Poem Successfully Added!", data: poem });
+        else {
+            res.json({message: "Poem Successfully Added!", data: poem});
+        }
     });
 };
 
@@ -45,26 +74,22 @@ router.incrementLikes = (req, res) => {
         if (err)
             res.json({ message: "Poem NOT Found!", errmsg : err } );
         else {
-            poem.likes.push(req.session.userId);
-            /*if(poem.find( { likes: req.session.userId} )){
-                res.json({ message: 'You have already liked this poem!', errmsg : err } );
+            if (poem.likes.includes(req.session.userId)) {
+                res.json({message: 'You have already liked this poem!'});
+            } else {
+                if(req.session.userId == null){
+                    res.json({message:'You haven\'t login. Please login first.'})
+                }
+                else{
+                    poem.likes.push(req.session.userId);
+                    poem.save(function (err) {
+                        if (err)
+                            res.json({message: "Poem NOT liked!", errmsg: err});
+                        else
+                            res.json({message: "Poem Successfully Liked!", data: poem});
+                    });
+                }
             }
-            else {
-                poem.likes.push(req.session.userId);
-                //record which poem user liked, but didn't work. So users don't know what poems they have liked
-                User.findById(req.session.userId, function(err,user){
-                    if (err)
-                        res.json({ message: 'User NOT Found!', errmsg : err } );
-                    else {
-                        user.likes.push(poem._id);
-                    }
-                })*/
-            poem.save(function (err) {
-                if (err)
-                    res.json({ message: "Poem NOT liked!", errmsg : err } );
-                else
-                    res.json({ message: "Poem Successfully Liked!", data: poem });
-            });
         }
     });
 };
@@ -74,13 +99,22 @@ router.decreaseLikes = (req, res) => {
         if (err)
             res.json({ message: "Poem NOT Found!", errmsg : err } );
         else {
-            poem.likes.remove(req.session.userId);
-            poem.save(function (err) {
-                if (err)
-                    res.json({ message: "Poem NOT liked!", errmsg : err } );
-                else
-                    res.json({ message: "Poem Successfully Unliked!", data: poem });
-            });
+            if(req.session.userId == null){
+                res.json({message:'You haven\'t login. Please login first.'})
+            } else {
+                if (!poem.likes.includes(req.session.userId)) {
+                    res.json({message: 'This is used for cancel your like.'});
+                }
+                else{
+                    poem.likes.remove(req.session.userId);
+                    poem.save(function (err) {
+                        if (err)
+                            res.json({message: "Poem NOT unliked!", errmsg: err});
+                        else
+                            res.json({message: "Poem Successfully unliked!", data: poem});
+                    });
+                }
+            }
         }
     });
 };
@@ -94,20 +128,42 @@ router.deletePoem = (req, res) => {
     });
 };
 
+router.editPoem = (req, res) => {
+
+    Poem.findById(req.params.id, function(err, poem) {
+        // console.log('SERVER : ' + req.params._id + ' ' + req.body);
+        if (err)
+            res.json({ message: 'Poem NOT Found!', errmsg : err } );
+        else {
+            poem.title = req.body.title;
+            poem.content= req.body.content;
+
+            poem.save(function (err) {
+                if (err)
+                    res.json({ message: 'Poem NOT UpDated!', errmsg : err } );
+                else
+                    res.json({ message: 'Poem Successfully UpDated!', data: poem });
+            });
+        }
+    });
+}
+
 /*
+//This is the sum of the like of all the objects
 function getTotalLikes(array) {
     let totalLikes = 0;
     array.forEach(function(obj) { totalLikes += obj.likes; });
     return totalLikes;
 }
+*/
 
-router.findTotalLikes = (req, res) => {
-    Poem.find(function(err, poem) {
+/*router.findTotalLikes = (req, res) => {
+    Poem.findById(req.params.id,function (err,poem) {
         if (err)
-            res.send(err);
-        else
-            res.json({ totalLikes : getTotalLikes(poem) });
+            res.json({ message: "Poem NOT Found!", errmsg : err } );
+        else {
+            res.json({ message: "Here is total likes!", data: poem.likes.length });
+        }
     });
 }*/
-
 module.exports = router;
