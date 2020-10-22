@@ -72,15 +72,17 @@ app.get("/usersLogout",users.userLogout);
 app.post("/usersRegister",users.addAUser);
 app.post("/users/login",users.userLogin);
 app.delete("/users/:id", users.deleteUser);
+// app.post("/users/:url", users.postImg);
 
 app.get("/poems", poems.findAllPoems);
-app.get("/poems/:id", poems.findOnePoem);
+app.get("/poems/:title", poems.findOnePoem);
+app.get("/poems/:id", poems.findPoemById);
 app.get("/mypoems", poems.findMyPoems);
 app.post("/poems",poems.addPoem);
 app.put("/poems/:id/like", poems.incrementLikes);
 app.put("/poems/:id/unlike",poems.decreaseLikes);
 app.delete("/poems/:id", poems.deletePoem);
-app.put("/poems/:id", poems.editPoem);
+app.put("/poems/:title", poems.editPoem);
 
 app.get("/authors", authors.findAllAuthors);
 app.get("/authors/:id", authors.findOneAuthor);

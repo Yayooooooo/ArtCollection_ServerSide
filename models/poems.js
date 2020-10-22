@@ -1,16 +1,21 @@
 let mongoose = require("../routes/connectDB");
-// mongoose.Promise = require('bluebird');
 
 let Schema = mongoose.Schema;
 let PoemSchema = new Schema({
-    title: String,
-    author: String,
-    content: String,
-    likes: [{type: Schema.Types.ObjectId, ref: "users"}]
-},
-{ collection: "poetry"}
+        author: String,
+        category: Number,
+        background: String,
+        likes: [{type: Schema.Types.ObjectId, ref: "users"}],
+        title: String,
+        createdTime: Date,
+        comment_id: [{type: Schema.Types.ObjectId, ref: "comments"}],
+        content: String,
+        audioSrc: String,
+        translation: String
+    },
+    {collection: "poetry"}
 );
-
 
 var Poem = mongoose.model("Poem", PoemSchema);
 module.exports = Poem;
+

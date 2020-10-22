@@ -20,6 +20,7 @@ let UserSchema = new Schema({
         required: true,
     },
     gender:String,
+    imgSrc: String,
     likes: [{type: Schema.Types.ObjectId, ref: "poems"}]
 },
 { collection: "users"}

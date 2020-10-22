@@ -13,14 +13,27 @@ router.findAllPoems = (req, res) => {
     });
 };
 
-router.findOnePoem = (req, res) => {
+router.findPoemById = (req, res) => {
     res.setHeader("Content-Type","application/json");
-
-    Poem.find({ "_id" : req.params.id },function(err, poem) {
+    Poem.find({ "id" : req.params.id },function(err, poem) {
         if (err)
             res.json({ message: "Poem NOT Found!", errmsg : err } );
         else
             res.send(JSON.stringify(poem,null,5));
+    });
+};
+
+router.findOnePoem = (req, res) => {
+    res.setHeader("Content-Type","application/json");
+
+    Poem.find({ "title" : req.params.title },function(err, poem) {
+        if (err)
+            res.json({ message: "Poem NOT Found!", errmsg : err } );
+        else
+            res.send(JSON.stringify(poem,null,5));
+            // res.json({ data : poem.data.title} );
+            // res.json({ data : poem.data[0].title} );
+            // res.json({ data : poem.title} ); 是空的
     });
 };
 
@@ -129,15 +142,18 @@ router.deletePoem = (req, res) => {
 
 router.editPoem = (req, res) => {
 
-    Poem.findById(req.params.id, function(err, poem) {
+    Poem.find({ "title" : req.params.title} , function(err, poem) {
         // console.log('SERVER : ' + req.params._id + ' ' + req.body);
         if (err)
             res.json({ message: "Poem NOT Found!", errmsg : err } );
         else {
-            poem.title = req.body.title;
-            poem.content= req.body.content;
+            console.log("here");
+            console.log(poem);
+            poem[0].title = req.body.title;
+            console.log(req.body);
+            poem[0].content= req.body.content;
 
-            poem.save(function (err) {
+            poem[0].save(function (err) {
                 if (err)
                     res.json({ message: "Poem NOT UpDated!", errmsg : err } );
                 else

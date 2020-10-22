@@ -100,7 +100,7 @@ router.userLogin = (req, res) => {
             } else {
                 req.session.userId = user._id;
                 console.log(req.session);
-                res.json({data: req.session.userId, message: "User Successfully Login!"});
+                res.json({data: user._id, message: "User Successfully Login!"});
                 // return res.redi ('/profile');
             }
         });
